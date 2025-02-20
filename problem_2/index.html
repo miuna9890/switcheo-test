@@ -1,3 +1,4 @@
+!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -18,7 +19,7 @@
 
     <div class="form-group">
     <label for="input-amount">Amount to send</label>
-    <input id ="input-amount" type = "number" placeholder="Enter amount"/>
+    <input id ="input-amount" type = "number" min = "0" step="any" placeholder="Enter amount"/>
     <select id = "input-currency">
       <option value="BTC">BTC</option>
       <option value="ETH">ETH</option>
@@ -30,7 +31,7 @@
 
     <div class="form-group">
     <label for="output-amount">Amount to receive</label>
-    <input id ="output-amount" type = "number" placeholder="Enter amount"/>
+    <input id ="output-amount" type = "number" min="0" step="any" placeholder="Enter amount"/>
     <select id = "output-currency">
       <option value="BTC">BTC</option>
       <option value="ETH">ETH</option>
@@ -40,11 +41,12 @@
     </div>
     <br />
 
-    <button>CONFIRM SWAP</button>
+    <label for="swap-button"></label>
+    <button id="swap-button">CONFIRM SWAP</button>
 
     </fieldset>
   </form>
-  
+
   <script src="script.js"></script>
 </body>
 
