@@ -88,4 +88,3 @@ swap_button.addEventListener('click', () => { // swap input and output currencie
 });
 
 
-
