@@ -11,31 +11,57 @@ document.addEventListener('DOMContentLoaded', function() {
     const arrow = document.querySelector('#arrow'); // arrow icon
     console.log(selected, options_container, options, arrow);
 
-    selected.onfocus = () => { // show currency options on focus
-        selected.style.backgroundColor = '#f1f1f1';
+    selected.onclick = () => { // show currency options on click
+        selected.style.backgroundColor = '#f0f0f0';
         options_container.classList.toggle('active');
-        if (arrow.classList.contains("fa-arrow-down")) { // change arrow icon
-            arrow.classList.remove("fa-arrow-down");
-            arrow.classList.add("fa-arrow-up");
+        if (arrow.classList.contains('fa-arrow-down')) {
+            arrow.classList.remove('fa-arrow-down');
+            arrow.classList.add('fa-arrow-up');
         }
     };
 
-    selected.onblur = () => { // hide currency options on blur
-        selected.style.backgroundColor = 'initial';
-        options_container.classList.toggle('active');
-        if (arrow.classList.contains("fa-arrow-up")) { // change arrow icon
-            arrow.classList.remove("fa-arrow-up");
-            arrow.classList.add("fa-arrow-down");
-        }
-    }
+    // Fetch exchange rates from API
+fetch('https://interview.switcheo.com/prices.json')
+.then(response => response.json())
+.then(data => {
+    exchange_rate = data.reduce((acc, item) => 
+        { acc[item.currency] = item.price;
+        return acc; 
+    }, {}); // store exchange rates in object
+
+    const currencies_1 = Object.keys(exchange_rate); // get all currencies
+
+    options_container.innerHTML = ''; // clear select fields
+
+    currencies_1.forEach(currency => { // add currencies to select fields
+        const option = document.createElement('li');
+        option.classList.add('option');
+        option.innerHTML = `
+        <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/${currency}.svg" alt="${currency}" style="width: 20px; height: 20px; margin-right: 10px;" />
+        <p>${currency}</p>
+    `;
+    
+    options_container.appendChild(option);
+
+    });
+
+    const options = document.querySelectorAll('.option'); // currency options
 
     options.forEach(option => { // select currency on click
         option.addEventListener('click', () => {
             const text = option.querySelector('p').textContent.trim();
-            console.log(text);
             selected.placeholder = text;
+            options_container.classList.remove('active');
+            arrow.classList.remove('fa-arrow-up');
+            arrow.classList.add('fa-arrow-down');
+            input_currency.value = text;
+            convertCurrency_input();
         });
         });
+    });
+
+
+
 
 let exchange_rate; // exchange rates object
 
