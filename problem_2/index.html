@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,6 +6,7 @@
   <title>EasySwap</title>
 
   <!-- You may add more stuff here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="style.css" rel="stylesheet" />
 </head>
 
@@ -26,6 +27,36 @@
       <option value="USDT">USDT</option>
       <option value="BNB">BNB</option>
       </select>
+    
+      <div class="dropdown">
+
+        <div class="input-container">
+          <input type="text" class = "selected" placeholder="Select a currency" />
+          <i class="fa-solid fa-arrow-down" id="arrow"></i>
+        </div>
+
+        <ul class="options-container">
+          <li class="option">
+            <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ACT.svg" alt="BTC" />
+            <p>BTC</p>
+          </li>
+          <li class="option">
+            <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ADA.svg" alt="ETH" /> 
+            <p>ETH</p>   
+          </li>
+          <li class="option">
+            <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/AGI.svg"alt="USDT" />
+            <p>USDT</p>
+          </li>
+          <li class="option">
+            <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ADA.svg" alt="BNB" />
+            <p>BNB</p>
+          </li> 
+          
+        </ul>
+
+      </div>
+
     </div>
     <br />
 

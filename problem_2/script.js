@@ -5,6 +5,37 @@ document.addEventListener('DOMContentLoaded', function() {
     const output_amount = document.getElementById('output-amount'); // output field
     const output_currency = document.getElementById('output-currency'); // select field
     const swap_button = document.getElementById('swap-button'); // button
+    const selected = document.querySelector('.selected'); // selected currency
+    const options_container = document.querySelector('.options-container'); // currency options container
+    const options = document.querySelectorAll('.option'); // currency options
+    const arrow = document.querySelector('#arrow'); // arrow icon
+    console.log(selected, options_container, options, arrow);
+
+    selected.onfocus = () => { // show currency options on focus
+        selected.style.backgroundColor = '#f1f1f1';
+        options_container.classList.toggle('active');
+        if (arrow.classList.contains("fa-arrow-down")) { // change arrow icon
+            arrow.classList.remove("fa-arrow-down");
+            arrow.classList.add("fa-arrow-up");
+        }
+    };
+
+    selected.onblur = () => { // hide currency options on blur
+        selected.style.backgroundColor = 'initial';
+        options_container.classList.toggle('active');
+        if (arrow.classList.contains("fa-arrow-up")) { // change arrow icon
+            arrow.classList.remove("fa-arrow-up");
+            arrow.classList.add("fa-arrow-down");
+        }
+    }
+
+    options.forEach(option => { // select currency on click
+        option.addEventListener('click', () => {
+            const text = option.querySelector('p').textContent.trim();
+            console.log(text);
+            selected.placeholder = text;
+        });
+        });
 
 let exchange_rate; // exchange rates object
 

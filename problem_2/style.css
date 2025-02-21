@@ -1,1 +1,62 @@
+.dropdown{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
 
+.option{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+}
+
+.options-container{
+    width: 100%;
+    background-color: #e38ccc;
+    border-radius: 8px;
+    transition : all 0.5s;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.options-container.active{
+    max-height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #2f061c;
+    opacity: 1;
+}
+
+.options-container::-webkit-scrollbar{
+    width: 8px;
+}
+
+.options-container::-webkit-scrollbar-thumb{
+    background-color: #200319;
+    border-radius: 5px;
+}
+
+.option{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.option:hover{
+    background-color: #f9f9f9;
+}
+.selected{
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input-container{
+    position: relative;
+}
+
+#arrow{
+    position: absolute;
+    right: 8px;
+    top: 3px;
+}
