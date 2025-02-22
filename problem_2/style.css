@@ -4,14 +4,21 @@
     width: 200px;
 }
 
-.option{
+.input-option{
     display: flex;
     align-items: center;
     gap: 10px;
     padding: 0;
 }
 
-.options-container{
+.output-option{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+}
+
+.input-options-container{
     width: 100%;
     background-color: #e38ccc;
     border-radius: 8px;
@@ -21,30 +28,66 @@
     overflow: hidden;
 }
 
-.options-container.active{
+.output-options-container{
+    width: 100%;
+    background-color: #e38ccc;
+    border-radius: 8px;
+    transition : all 0.5s;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+
+.input-options-container.active{
     max-height: 200px;
     overflow-y: scroll;
     border: 1px solid #2f061c;
     opacity: 1;
 }
 
-.options-container::-webkit-scrollbar{
+.output-options-container.active{
+    max-height: 200px;
+    overflow-y: scroll;
+    border: 1px solid #2f061c;
+    opacity: 1;
+}
+
+.input-options-container::-webkit-scrollbar{
     width: 8px;
 }
 
-.options-container::-webkit-scrollbar-thumb{
+.output-options-container::-webkit-scrollbar{
+    width: 8px;
+}
+
+.input-options-container::-webkit-scrollbar-thumb{
     background-color: #200319;
     border-radius: 5px;
 }
 
-.option{
+.output-options-container::-webkit-scrollbar-thumb{
+    background-color: #200319;
+    border-radius: 5px;
+}
+
+.input-option{
     padding: 10px;
     cursor: pointer;
 }
 
-.option:hover{
+.input-option:hover{
     background-color: #f9f9f9;
 }
+
+.output-option{
+    padding: 10px;
+    cursor: pointer;
+}
+
+.output-option:hover{
+    background-color: #f9f9f9;
+}
+
 .selected{
     position: relative;
     width: 100%;
@@ -55,7 +98,16 @@
     position: relative;
 }
 
-#arrow{
+.output-container{
+    position: relative;
+}
+
+#input-arrow{
+    position: absolute;
+    right: 8px;
+    top: 3px;
+}
+#output-arrow{
     position: absolute;
     right: 8px;
     top: 3px;

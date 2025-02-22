@@ -21,22 +21,16 @@
     <div class="form-group">
     <label for="input-amount">Amount to send</label>
     <input id ="input-amount" type = "number" min = "0" step="any" placeholder="Enter amount"/>
-     <!-- <select id = "input-currency">
-      <option value="BTC">BTC</option>
-      <option value="ETH">ETH</option>
-      <option value="USDT">USDT</option>
-      <option value="BNB">BNB</option>
-      </select> -->
     
       <div class="dropdown">
 
         <div class="input-container">
-          <input type="text" class = "selected" placeholder="Select a currency" />
-          <i class="fa-solid fa-arrow-down" id="arrow"></i>
+          <input type="text" id="input-currency" class = "selected" placeholder="Select a currency" />
+          <i class="fa-solid fa-arrow-down input" id="input-arrow"></i>
         </div>
 
-        <ul class="options-container">
-          <!-- <li class="option">
+        <ul class="input-options-container">
+          <li class="option">
             <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ACT.svg" alt="BTC" />
             <p>BTC</p>
           </li>
@@ -51,7 +45,7 @@
           <li class="option">
             <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ADA.svg" alt="BNB" />
             <p>BNB</p>
-          </li> -->
+          </li> 
           
         </ul>
 
@@ -63,17 +57,40 @@
     <div class="form-group">
     <label for="output-amount">Amount to receive</label>
     <input id ="output-amount" type = "number" min="0" step="any" placeholder="Enter amount"/>
-    <select id = "output-currency">
-      <option value="BTC">BTC</option>
-      <option value="ETH">ETH</option>
-      <option value="USDT">USDT</option>
-      <option value="BNB">BNB</option>
-      </select>
+    <div class="dropdown">
+
+      <div class="output-container">
+        <input type="text" id ="output-currency" class = "selected" placeholder="Select a currency" />
+        <i class="fa-solid fa-arrow-down output" id="output-arrow"></i>
+      </div>
+
+      <ul class="output-options-container">
+         <li class="option">
+          <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ACT.svg" alt="BTC" />
+          <p>BTC</p>
+        </li>
+        <li class="option">
+          <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ADA.svg" alt="ETH" /> 
+          <p>ETH</p>   
+        </li>
+        <li class="option">
+          <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/AGI.svg"alt="USDT" />
+          <p>USDT</p>
+        </li>
+        <li class="option">
+          <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ADA.svg" alt="BNB" />
+          <p>BNB</p>
+        </li>
+        
+      </ul>
     </div>
     <br />
 
     <label for="swap-button"></label>
     <button id="swap-button">CONFIRM SWAP</button>
+
+    <label for="submit-button"></label>
+    <button id="submit-button">SUBMIT EXCHANGE</button>
 
     </fieldset>
   </form>
