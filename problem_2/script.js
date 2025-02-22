@@ -1,7 +1,7 @@
 // Author: Varatharaju Mithuna
 document.addEventListener('DOMContentLoaded', function() {
     const input_amount = document.getElementById('input-amount'); // input field
-    const input_currency = document.getElementById('input-currency'); // select field
+    //const input_currency = document.getElementById('input-currency'); // select field
     const output_amount = document.getElementById('output-amount'); // output field
     const output_currency = document.getElementById('output-currency'); // select field
     const swap_button = document.getElementById('swap-button'); // button
@@ -45,6 +45,9 @@ fetch('https://interview.switcheo.com/prices.json')
 
     });
 
+    selected.value = 'BUSD'; // set default input currency
+    output_currency.value = 'BSD'; // set default output
+
     const options = document.querySelectorAll('.option'); // currency options
 
     options.forEach(option => { // select currency on click
@@ -54,7 +57,8 @@ fetch('https://interview.switcheo.com/prices.json')
             options_container.classList.remove('active');
             arrow.classList.remove('fa-arrow-up');
             arrow.classList.add('fa-arrow-down');
-            input_currency.value = text;
+            selected.value = text;
+            //input_currency.value = text;
             convertCurrency_input();
         });
         });
@@ -66,7 +70,7 @@ fetch('https://interview.switcheo.com/prices.json')
 let exchange_rate; // exchange rates object
 
 // Fetch exchange rates from API
-fetch('https://interview.switcheo.com/prices.json')
+/* fetch('https://interview.switcheo.com/prices.json')
     .then(response => response.json())
     .then(data => {
         exchange_rate = data.reduce((acc, item) => 
@@ -96,13 +100,14 @@ fetch('https://interview.switcheo.com/prices.json')
         output_currency.value = 'USD'; // set default output
 
         convertCurrency_input(); // convert currency on page load
-    });
+    }); */
 
 // Function to convert currency
 function convertCurrency_input() {
     if (!exchange_rate) return; // return if exchange rates are not yet fetched
     const amount = parseFloat(input_amount.value) || 0; // get input amount
-    const inputCurrency = input_currency.value; // get selected input currency
+    //const inputCurrency = input_currency.value; // get selected input currency
+    const inputCurrency = selected.value; // get selected input currency
     const outputCurrency = output_currency.value; // get selected output currency
 
     // Calculate output amount
@@ -118,7 +123,8 @@ function convertCurrency_input() {
 function convertCurrency_output() {
     if (!exchange_rate) return; // return if exchange rates are not yet fetched
     const amount = parseFloat(output_amount.value) || 0; // get input amount
-    const inputCurrency = input_currency.value; // get selected input currency
+    //const inputCurrency = input_currency.value; // get selected input currency
+    const inputCurrency = selected.value; // get selected input currency
     const outputCurrency = output_currency.value; // get selected output currency
 
     // Calculate output amount
@@ -133,11 +139,15 @@ function convertCurrency_output() {
 // Event listeners
 input_amount.addEventListener('input', convertCurrency_input); // convert currency on input change
 output_amount.addEventListener('input', convertCurrency_output); // convert currency on output change
-input_currency.addEventListener('change', convertCurrency_input); // convert currency on currency change
+//input_currency.addEventListener('change', convertCurrency_input); // convert currency on currency change
 output_currency.addEventListener('change', convertCurrency_output); // convert currency on currency change
 swap_button.addEventListener('click', () => { // swap input and output currencies
-    let temp = input_currency.value;
+    /*let temp = input_currency.value;
     input_currency.value = output_currency.value;
+    output_currency.value = temp;
+    convertCurrency_input();*/
+    let temp = selected.value;
+    selected.value = output_currency.value;
     output_currency.value = temp;
     convertCurrency_input();
 });
