@@ -1,3 +1,39 @@
+body {
+    background: linear-gradient(135deg, #ff00ff, #00ffff, #ff007f); /* Dark Purple */
+    color:  #0066cc;
+    font-family: 'Orbitron', sans-serif; /* Futuristic font */
+    height: 100vh;
+}
+
+h1{
+    font-size: 2.5rem;
+    color:  #0066cc; /* White */
+    text-shadow: 0 0 5px #ffffff, 0 0 7px #e3e3e3, 0 0 13px #c0c0c0; /* Soft Glow */
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 5px;
+}
+
+p {
+    font-size: 1.2em;
+    color:  #0066cc; /* White */
+    text-align: center;
+}
+
+.form-group {
+    background: #ffffff90; /* White with 90% opacity */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.6);
+    width: 80%;
+    max-width: 600px;
+    height: auto;
+
+    /* Centering styles */
+    margin: 20px auto; /* Auto centers horizontally */
+    flex-direction: column;
+}
+
 .dropdown{
     display: flex;
     flex-direction: column;
@@ -5,10 +41,12 @@
 }
 
 .input-option{
-    display: flex;
+    display: flex; /* Ensures elements align properly */
     align-items: center;
-    gap: 10px;
-    padding: 0;
+    width: 100%; /* Make sure it covers the whole dropdown */
+    padding: 10px; /* Adjust padding to match the full area */
+    cursor: pointer;
+    background-color: transparent; /* Ensure default background is clear */
 }
 
 .output-option{
@@ -20,20 +58,26 @@
 
 .input-options-container{
     width: 100%;
-    background-color: #e38ccc;
+    background-color: #ae5faed8;
     border-radius: 8px;
     transition : all 0.5s;
     opacity: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
     max-height: 0;
     overflow: hidden;
 }
 
 .output-options-container{
     width: 100%;
-    background-color: #e38ccc;
+    background-color: #ae5faed8;
     border-radius: 8px;
     transition : all 0.5s;
     opacity: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
     max-height: 0;
     overflow: hidden;
 }
@@ -76,7 +120,7 @@
 }
 
 .input-option:hover{
-    background-color: #f9f9f9;
+    background-color: #bb78a5;
 }
 
 .output-option{
@@ -96,6 +140,8 @@
 
 .input-container{
     position: relative;
+    
+
 }
 
 .output-container{
@@ -111,4 +157,15 @@
     position: absolute;
     right: 8px;
     top: 3px;
+}
+
+/* Glowing Animation */
+@keyframes glow {
+    0% { box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.7); }
+    50% { box-shadow: 0 0 20px 5px rgba(255, 105, 180, 1); }
+    100% { box-shadow: 0 0 15px 5px rgba(255, 105, 180, 0.7); }
+}
+
+#submit-button{
+    animation: glow 1.5s infinite alternate;
 }

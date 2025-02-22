@@ -3,7 +3,7 @@
 
 <head>
   <meta charset = "UTF-8" />
-  <title>EasySwap</title>
+  <title>Easy Swap</title>
 
   <!-- You may add more stuff here -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
@@ -15,12 +15,10 @@
     <p>Swap with <em>EASE!</em> </p>
   <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
   <form onsubmit="return !1">
-    <fieldset>
-    <legend>Swap Details</legend>
 
     <div class="form-group">
     <label for="input-amount">Amount to send</label>
-    <input id ="input-amount" type = "number" min = "0" step="any" placeholder="Enter amount"/>
+    <input id ="input-amount" type = "number" min = "0" step="any" placeholder="Enter amount" required/>
     
       <div class="dropdown">
 
@@ -51,10 +49,6 @@
 
       </div>
 
-    </div>
-    <br />
-
-    <div class="form-group">
     <label for="output-amount">Amount to receive</label>
     <input id ="output-amount" type = "number" min="0" step="any" placeholder="Enter amount"/>
     <div class="dropdown">
@@ -92,7 +86,6 @@
     <label for="submit-button"></label>
     <button id="submit-button">SUBMIT EXCHANGE</button>
 
-    </fieldset>
   </form>
 
   <script src="script.js"></script>
