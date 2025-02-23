@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //const options = document.querySelectorAll('.option'); // currency options
     const input_arrow = document.querySelector('#input-arrow'); // arrow
     const output_arrow = document.querySelector('#output-arrow'); // arrow
+    const error_msg = document.getElementById('input-error'); // error message
     // Fetch exchange rates from API
 fetch('https://interview.switcheo.com/prices.json')
 .then(response => response.json())
@@ -111,6 +112,7 @@ function convertCurrency_input() {
     const amount = parseFloat(input_amount.value) || 0; // get input amount
     const inputCurrency = input_currency.value; // get selected input currency
     const outputCurrency = output_currency.value; // get selected output currency
+
 
     // Calculate output amount
     const input_currency_rate = exchange_rate[inputCurrency]; // get exchange rate for input currency
