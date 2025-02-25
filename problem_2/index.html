@@ -1,11 +1,12 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset = "UTF-8" />
-  <title>EasySwap</title>
+  <title>Easy Swap</title>
 
   <!-- You may add more stuff here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link href="style.css" rel="stylesheet" />
 </head>
 
@@ -14,37 +15,80 @@
     <p>Swap with <em>EASE!</em> </p>
   <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
   <form onsubmit="return !1">
-    <fieldset>
-    <legend>Swap Details</legend>
 
     <div class="form-group">
     <label for="input-amount">Amount to send</label>
-    <input id ="input-amount" type = "number" min = "0" step="any" placeholder="Enter amount"/>
-    <select id = "input-currency">
-      <option value="BTC">BTC</option>
-      <option value="ETH">ETH</option>
-      <option value="USDT">USDT</option>
-      <option value="BNB">BNB</option>
-      </select>
-    </div>
-    <br />
+    <input id ="input-amount" type = "number" min = "0" step="any" placeholder="Enter amount" required/>
+    
+      <div class="dropdown">
 
-    <div class="form-group">
+        <div class="input-container">
+          <input type="text" id="input-currency" class = "selected" placeholder="Select a currency" />
+          <i class="fa-solid fa-arrow-down input" id="input-arrow"></i>
+          <div id="error-message" style="color: red;" display="none">
+
+          </div>
+        </div>
+
+        <ul class="input-options-container">
+          <li class="option">
+            <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ACT.svg" alt="BTC" />
+            <p>BTC</p>
+          </li>
+          <li class="option">
+            <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ADA.svg" alt="ETH" /> 
+            <p>ETH</p>   
+          </li>
+          <li class="option">
+            <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/AGI.svg"alt="USDT" />
+            <p>USDT</p>
+          </li>
+          <li class="option">
+            <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ADA.svg" alt="BNB" />
+            <p>BNB</p>
+          </li> 
+          
+        </ul>
+
+      </div>
+
     <label for="output-amount">Amount to receive</label>
     <input id ="output-amount" type = "number" min="0" step="any" placeholder="Enter amount"/>
-    <select id = "output-currency">
-      <option value="BTC">BTC</option>
-      <option value="ETH">ETH</option>
-      <option value="USDT">USDT</option>
-      <option value="BNB">BNB</option>
-      </select>
+    <div class="dropdown">
+
+      <div class="output-container">
+        <input type="text" id ="output-currency" class = "selected" placeholder="Select a currency" />
+        <i class="fa-solid fa-arrow-down output" id="output-arrow"></i>
+      </div>
+
+      <ul class="output-options-container">
+         <li class="option">
+          <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ACT.svg" alt="BTC" />
+          <p>BTC</p>
+        </li>
+        <li class="option">
+          <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ADA.svg" alt="ETH" /> 
+          <p>ETH</p>   
+        </li>
+        <li class="option">
+          <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/AGI.svg"alt="USDT" />
+          <p>USDT</p>
+        </li>
+        <li class="option">
+          <img src="https://raw.githubusercontent.com/Switcheo/token-icons/main/tokens/ADA.svg" alt="BNB" />
+          <p>BNB</p>
+        </li>
+        
+      </ul>
     </div>
     <br />
 
     <label for="swap-button"></label>
     <button id="swap-button">CONFIRM SWAP</button>
 
-    </fieldset>
+    <label for="submit-button"></label>
+    <button id="submit-button">SUBMIT EXCHANGE</button>
+
   </form>
 
   <script src="script.js"></script>
