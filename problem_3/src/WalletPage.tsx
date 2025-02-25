@@ -48,12 +48,26 @@ interface WalletBalance {
         return [];
     }
 
+        // WalletRow implementation 
+        const WalletRow: React.FC<{amount: number, usdValue: number, formattedAmount: string }> = (props) => {
+          const { amount, usdValue, formattedAmount } = props;
+          return (
+            <div>
+              <div>{formattedAmount}</div>
+              <div>{amount}</div>
+              <div>{usdValue}</div>
+            </div>
+          )
+        }
+  
+
   const WalletPage: React.FC<Props> = (props: Props) => {
     const { children, ...rest } = props;
     const balances = useWalletBalances();
 
     // prices state is initialized with an empty object/price
-      const [prices, setPrices] = useState({});
+    // proces should be initialized as an object with string keys and number values so that prices[balance.currency] does not throw an error
+      const [prices, setPrices] = useState<{ [key: string]: number }>({});
   
     /*
     on component mount, fetch prices from datasource
@@ -141,7 +155,8 @@ interface WalletBalance {
     const formattedBalances = sortedBalances.map((balance: WalletBalance) => {
       return {
         ...balance,
-        formatted: balance.amount.toFixed()
+        // balance.amount.toFixed(2) is used to format the amount to 2 decimal places
+        formatted: balance.amount.toFixed(2)
       }
     })
   
@@ -156,11 +171,15 @@ interface WalletBalance {
 
     // formattedBalances should be used instead of sortedBalances so that the formatted amount is used
     const rows = formattedBalances.map((balance: FormattedWalletBalance, index: number) => {
+      // prices[balance.currency] is used to get the price of the currency
+      // type of prices is not defined and thus typescript will throw an error
+      // prices should be defined as an object with string keys and number values so that prices[balance.currency] does not throw an error
       const usdValue = prices[balance.currency] * balance.amount;
       return (
         // WalletRow component is not implemented
         <WalletRow 
-          className={classes.row}
+        // className prop is not defined
+        // className prop should be defined and passed to the WalletRow component
           key={index}
           amount={balance.amount}
           usdValue={usdValue}
@@ -168,6 +187,7 @@ interface WalletBalance {
         />
       )
     })
+
   
     return (
       <div {...rest}>
@@ -175,3 +195,5 @@ interface WalletBalance {
       </div>
     )
   }
+
+  export default WalletPage;
