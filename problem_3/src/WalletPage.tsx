@@ -1,38 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
-
-// does not have a blockchain property
-interface WalletBalance {
-    currency: string;
-    amount: number;
-    blockchain: string;
-  }
-  interface FormattedWalletBalance {
-    currency: string;
-    amount: number;
-    formatted: string;
-  }
-  
-  // fetch prices from url
-  class Datasource {
-    // Datasource class not implemented
-
-
-    //initialize constructor with url
-    constructor(private url: string) {
-    }
-
-    //fetch prices from url
-    async fetchPrices() {
-      const response = await fetch(this.url);
-        return await response.json();
-    }
-
-    //get prices
-    async getPrices() {
-      return await this.fetchPrices();
-    }
-
-  }
+import { WalletBalance } from './WalletBalance';
+import { FormattedWalletBalance } from './FormattedWalletBalance';
+import { Datasource } from './Datasource';
 
   interface BoxProps {
     children?: React.ReactNode;

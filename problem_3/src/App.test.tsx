@@ -4,7 +4,7 @@ import App from './App';
 import WalletPage from './WalletPage';
 
 test('renders learn react link', () => {
-  render(<App />);
+  render(<WalletPage />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
